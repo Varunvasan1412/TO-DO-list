@@ -7,6 +7,60 @@
     <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
   <body>
-    <h2 class="text-red-600 text-4xl mt-36 text-center">varun</h2>
+    <div class="container flex justify-center items-center">
+      <div
+        class="container h-[40em] w-[30em] bg-gray-800 mt-[10vh] rounded-3xl"
+      >
+        <h2
+          class="text-white text-center relative top-7 text-2xl font-semibold"
+        >
+          TO-DO LIST
+        </h2>
+        <input
+          type="text"
+          placeholder="Write here..."
+          class="inputBox relative top-14 w-[90%] py-3 px-4 ml-5 rounded-full placeholder:text-lg border-none outline-none"
+        />
+      </div>
+      <div class="content">
+        <ul>
+          <li
+            class="list-items w-[20em] px-16 py-2 text-xl bg-blue-500 relative right-[22em] bottom-16 rounded-full text-white"
+            id="list-item"
+          >
+            Pick up the phone
+          </li>
+        </ul>
+        <div
+          class="box w-9 h-9 rounded-full bg-gray-800 relative bottom-[6.5em] right-[26.5em] pt-[8px] pl-[5px]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 15 15"
+          >
+            <path
+              fill="#ffffff"
+              fill-rule="evenodd"
+              d="M14.707 3L5.5 12.207L.293 7L1 6.293l4.5 4.5l8.5-8.5z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
   </body>
+
+  <!-- <script>
+    function list() {
+      let listItem = document.querySelector("#list-item");
+      let inputBox = document.querySelector(".inputBox");
+
+      inputBox.addEventListener("keyup", (event) => {
+        if (event.key == 13) {
+        }
+      });
+    }
+  </script> -->
 </html>
