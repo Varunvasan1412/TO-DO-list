@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head class="max-w-[30rem] mx-auto rounded-full flex items-center">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TO-DO LIST</title>
@@ -8,7 +8,7 @@
   </head>
 
   <body class="bg-gray-500">
-    <div class="max-w-xl mx-auto bg-gray-800 text-center my-[15vh] rounded-2xl">
+    <div class="max-w-xl mx-auto pb-5 bg-gray-800 text-center my-[15vh] rounded-2xl">
       <div class="py-8">
         <h2 class="mb-10 text-white font-semibold text-2xl">TO-DO LIST</h2>
         <input
@@ -16,38 +16,71 @@
           placeholder="Write here..."
           id="textbox"
           class="w-[90%] placeholder:text-blue-300 px-5 py-3 rounded-full outline-none"
+          onkeyup="Enterkeypressed(event)"
+          required
         />
+      
       </div>
 
-      <div
-        class="parent bg-blue-400 max-w-[30rem] mx-auto rounded-full flex items-center"
-      >
-        <div class="child-1 ml-4 my-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill="none"
-              stroke="#ffffff"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="m1.75 9.75l2.5 2.5m3.5-4l2.5-2.5m-4.5 4l2.5 2.5l6-6.5"
-            />
-          </svg>
-        </div>
-        <ul>
-          <li class="child-2 m-3 max-w-full"></li>
+        <ul id="list-container">
+          <!-- List items will be dynamically added here -->
         </ul>
       </div>
     </div>
-  </body>
 
-  <script>
-    const inputBox = document.querySelector("#textbox");
-    const taskItem = document.querySelector("#list-item");
-  </script>
+    <script>
+      function Enterkeypressed(event) {
+        if (event.key === "Enter") {
+          let inputBox = document.querySelector("#textbox");
+          let inputValue = inputBox.value;
+
+          if (inputValue.trim() !== "") {
+            // Check if the input is not empty or just spaces
+            addToDoList(inputValue);
+            inputBox.value = ""; // Clear the input field
+          }
+          else{
+            inputBox.setCustomValidity("Please enter a task before adding.");
+            inputBox.reportValidity();
+          }
+        }
+      }
+
+      function addToDoList(text) {
+        // Create a new task container
+        let taskContainer = document.createElement("li");
+        taskContainer.className = "m-3 max-w-full";
+
+        // Create a new task with text content
+        let task = document.createElement("div");
+        task.className =
+          "task-style";
+        task.innerHTML = `
+                <div class="ml-4 my-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16">
+                        <path fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m1.75 9.75l2.5 2.5m3.5-4l2.5-2.5m-4.5 4l2.5 2.5l6-6.5"/>
+                    </svg>
+                </div>
+                <div class="ml-4 my-2 max-w-[20rem] break-all">${text}</div>
+            `;
+          
+        task.addEventListener("click", function() {
+        this.classList.toggle("completed-task");
+        });
+
+        task.addEventListener("dblclick", function() {
+            this.parentElement.remove();
+        });
+
+        // Append the new task to the task container
+        taskContainer.appendChild(task);
+
+        // Append the new task container to the list
+        document.getElementById("list-container").appendChild(taskContainer);
+      }
+
+      
+
+    </script>
+  </body>
 </html>
