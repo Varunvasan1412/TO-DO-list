@@ -6,61 +6,48 @@
     <title>TO-DO LIST</title>
     <link rel="stylesheet" href="./assets/css/main.css" />
   </head>
-  <body>
-    <div class="container flex justify-center items-center">
-      <div
-        class="container h-[40em] w-[30em] bg-gray-800 mt-[10vh] rounded-3xl"
-      >
-        <h2
-          class="text-white text-center relative top-7 text-2xl font-semibold"
-        >
-          TO-DO LIST
-        </h2>
+
+  <body class="bg-gray-500">
+    <div class="max-w-xl mx-auto bg-gray-800 text-center my-[15vh] rounded-2xl">
+      <div class="py-8">
+        <h2 class="mb-10 text-white font-semibold text-2xl">TO-DO LIST</h2>
         <input
           type="text"
           placeholder="Write here..."
-          class="inputBox relative top-14 w-[90%] py-3 px-4 ml-5 rounded-full placeholder:text-lg border-none outline-none"
+          id="textbox"
+          class="w-[90%] placeholder:text-blue-300 px-5 py-3 rounded-full outline-none"
         />
       </div>
-      <div class="content">
-        <ul>
-          <li
-            class="list-items w-[20em] px-16 py-2 text-xl bg-blue-500 relative right-[22em] bottom-16 rounded-full text-white"
-            id="list-item"
-          >
-            Pick up the phone
-          </li>
-        </ul>
-        <div
-          class="box w-9 h-9 rounded-full bg-gray-800 relative bottom-[6.5em] right-[26.5em] pt-[8px] pl-[5px]"
-        >
+
+      <div
+        class="parent bg-blue-400 max-w-[30rem] mx-auto rounded-full flex items-center"
+      >
+        <div class="child-1 ml-4 my-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 15 15"
+            width="32"
+            height="32"
+            viewBox="0 0 16 16"
           >
             <path
-              fill="#ffffff"
-              fill-rule="evenodd"
-              d="M14.707 3L5.5 12.207L.293 7L1 6.293l4.5 4.5l8.5-8.5z"
-              clip-rule="evenodd"
+              fill="none"
+              stroke="#ffffff"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="m1.75 9.75l2.5 2.5m3.5-4l2.5-2.5m-4.5 4l2.5 2.5l6-6.5"
             />
           </svg>
         </div>
+        <ul>
+          <li class="child-2 m-3 max-w-full"></li>
+        </ul>
       </div>
     </div>
   </body>
 
-  <!-- <script>
-    function list() {
-      let listItem = document.querySelector("#list-item");
-      let inputBox = document.querySelector(".inputBox");
-
-      inputBox.addEventListener("keyup", (event) => {
-        if (event.key == 13) {
-        }
-      });
-    }
-  </script> -->
+  <script>
+    const inputBox = document.querySelector("#textbox");
+    const taskItem = document.querySelector("#list-item");
+  </script>
 </html>
